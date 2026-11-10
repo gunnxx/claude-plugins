@@ -1,0 +1,8 @@
+{
+  "name": "python-style",
+  "version": "1.0.0",
+  "description": "Python code style: docstrings, module-level constants, logging, type hints, naming, imports and code organization.",
+  "author": {
+    "name": "gunnxx"
+  }
+}

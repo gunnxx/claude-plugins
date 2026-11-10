@@ -1,0 +1,8 @@
+{
+  "name": "book-doc",
+  "version": "1.0.0",
+  "description": "Book-style technical guides as HTML (light/dark, SVG figures, KaTeX) and as a LaTeX scribe-notes PDF.",
+  "author": {
+    "name": "gunnxx"
+  }
+}

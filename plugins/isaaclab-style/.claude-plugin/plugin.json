@@ -1,0 +1,8 @@
+{
+  "name": "isaaclab-style",
+  "version": "1.0.0",
+  "description": "Isaac Lab configclass conventions: subclassing variants, __post_init__ overrides and asset configurations.",
+  "author": {
+    "name": "gunnxx"
+  }
+}

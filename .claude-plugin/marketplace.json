@@ -1,0 +1,24 @@
+{
+  "name": "gunnxx-plugins",
+  "description": "Personal Claude Code plugins: book-style docs and Python / Isaac Lab code style.",
+  "owner": {
+    "name": "gunnxx"
+  },
+  "plugins": [
+    {
+      "name": "book-doc",
+      "source": "./plugins/book-doc",
+      "description": "Book-style technical guides as HTML (light/dark, SVG figures, KaTeX) and as a LaTeX scribe-notes PDF."
+    },
+    {
+      "name": "python-style",
+      "source": "./plugins/python-style",
+      "description": "Python code style: docstrings, module-level constants, logging, type hints, naming, imports and code organization."
+    },
+    {
+      "name": "isaaclab-style",
+      "source": "./plugins/isaaclab-style",
+      "description": "Isaac Lab configclass conventions: subclassing variants, __post_init__ overrides and asset configurations."
+    }
+  ]
+}

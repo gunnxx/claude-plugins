@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TITLE IN TWO TO FOUR WORDS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<style>
+:root {
+  --bg: #fbfaf7; --paper: #ffffff; --ink: #1d1d1f; --muted: #5b5b63; --rule: #d9d6cf;
+  --accent: #8a3b12; --code-bg: #f2efe8;
+  --robot: #e7f0fb; --robot-line: #2f6db3;
+  --brain: #f8ebe3; --brain-line: #b0532a;
+  --wire: #eef3e4; --wire-line: #5b7d2a;
+  --lan: #f3eefa; --lan-line: #6a4aa8;
+  --box: #ffffff; --line: #3b3b40; --label-bg: #fbfaf7;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a; --paper: #1c1d22; --ink: #e8e6e1; --muted: #a3a1a8; --rule: #34353c;
+    --accent: #f0a06a; --code-bg: #26272e;
+    --robot: #1b2a3d; --robot-line: #6fa6e6;
+    --brain: #3a2419; --brain-line: #e38a5c;
+    --wire: #223019; --wire-line: #9cc463;
+    --lan: #2a2238; --lan-line: #b49be6;
+    --box: #23242a; --line: #c9c7c2; --label-bg: #15161a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15161a; --paper: #1c1d22; --ink: #e8e6e1; --muted: #a3a1a8; --rule: #34353c;
+  --accent: #f0a06a; --code-bg: #26272e;
+  --robot: #1b2a3d; --robot-line: #6fa6e6;
+  --brain: #3a2419; --brain-line: #e38a5c;
+  --wire: #223019; --wire-line: #9cc463;
+  --lan: #2a2238; --lan-line: #b49be6;
+  --box: #23242a; --line: #c9c7c2; --label-bg: #15161a;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 18px; line-height: 1.62;
+}
+main { max-width: 860px; margin: 0 auto; padding: 32px 16px 96px; }
+.theme-toggle {
+  position: fixed; top: 12px; right: 12px; z-index: 5;
+  font: 600 13px/1 "JetBrains Mono", monospace; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 8px 10px; cursor: pointer;
+}
+.header-block { border-bottom: 1px solid var(--ink); padding-bottom: 14px; margin-bottom: 22px; font-weight: 700; }
+.header-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.outline { font-style: italic; margin: 0 0 28px; }
+.outline b { font-style: normal; margin-right: 8px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 18px; }
+h2 { font-size: 25px; margin: 56px 0 12px; line-height: 1.25; }
+h3 { font-size: 20px; margin: 32px 0 8px; }
+h2 .num, h3 .num { color: var(--accent); margin-right: 10px; }
+p { margin: 0 0 14px; }
+code, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.84em; }
+:not(pre) > code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+pre { background: var(--code-bg); padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+pre code { font-size: inherit; }
+.toc { border: 1px solid var(--rule); background: var(--paper); border-radius: 8px; padding: 16px 20px; margin-bottom: 28px; }
+.toc h2 { margin: 0 0 8px; font-size: 21px; }
+.toc ol { margin: 0; padding-left: 22px; }
+.toc ol ol { padding-left: 22px; font-size: 0.94em; }
+.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--muted); }
+a { color: var(--accent); }
+figure { margin: 26px 0; background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; }
+figure svg { width: 100%; height: auto; display: block; }
+figcaption { font-size: 15px; color: var(--muted); margin-top: 10px; text-align: center; }
+.table-wrap { overflow-x: auto; margin: 18px 0 22px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; line-height: 1.45; }
+th, td { border-bottom: 1px solid var(--rule); padding: 7px 8px; text-align: left; vertical-align: top; }
+th { border-bottom: 2px solid var(--ink); font-weight: 700; }
+table.svc { table-layout: fixed; min-width: 800px; }
+table.svc th:nth-child(1) { width: 15%; } table.svc th:nth-child(2) { width: 19%; }
+table.svc th:nth-child(3) { width: 7%; } table.svc th:nth-child(4) { width: 25%; }
+table.svc code { overflow-wrap: normal; word-break: normal; }
+caption { caption-side: bottom; font-size: 14px; color: var(--muted); padding-top: 8px; }
+.callout { border-left: 4px solid var(--accent); background: var(--paper); padding: 12px 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+.callout p:last-child { margin-bottom: 0; }
+dl dt { font-weight: 700; margin-top: 10px; }
+dl dd { margin: 2px 0 0 20px; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+/* SVG figure styles */
+svg text { fill: var(--ink); font-family: "Source Serif 4", Georgia, serif; }
+svg.halo text { paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round; }
+svg .t-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+svg .t-title { font-weight: 700; }
+svg .t-muted { fill: var(--muted); }
+svg .host-robot { fill: var(--robot); stroke: var(--robot-line); stroke-width: 2; }
+svg .host-brain { fill: var(--brain); stroke: var(--brain-line); stroke-width: 2; }
+svg .wire { fill: var(--wire); stroke: var(--wire-line); stroke-width: 1.5; }
+svg .lan { fill: var(--lan); stroke: var(--lan-line); stroke-width: 1.5; }
+svg .box { fill: var(--box); stroke: var(--line); stroke-width: 1.2; }
+svg .box-r { fill: var(--box); stroke: var(--robot-line); stroke-width: 1.4; }
+svg .box-b { fill: var(--box); stroke: var(--brain-line); stroke-width: 1.4; }
+svg .dashed { fill: none; stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 6 5; }
+svg .life { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 5; }
+svg .arrow { stroke: var(--line); stroke-width: 1.6; fill: none; }
+svg .arrow-ret { stroke: var(--line); stroke-width: 1.4; fill: none; stroke-dasharray: 6 4; }
+svg .head { fill: var(--line); }
+svg .bar-a { fill: var(--robot); stroke: var(--robot-line); stroke-width: 1.4; }
+svg .bar-b { fill: var(--brain); stroke: var(--brain-line); stroke-width: 1.4; }
+@media (max-width: 600px) { body { font-size: 17px; } h1 { font-size: 25px; } h2 { font-size: 22px; } }
+</style>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">theme</button>
+<main>
+
+<!-- Header block. Three rows, each a left and a right cell. html2tex.py maps them onto the
+     LaTeX header in the same order. Keep every cell free of colons. -->
+<div class="header-block">
+  <div class="header-row"><span>ORGANIZATION, REPOSITORY</span><span>Prepared for READER NAME</span></div>
+  <div class="header-row"><span>SUBJECT LINE</span><span>Notes #1</span></div>
+  <div class="header-row"><span>VERSION OR RELEASE</span><span>Month D, YYYY</span></div>
+</div>
+
+<h1>Full Title of the Notes</h1>
+
+<p class="outline"><b>Outline</b>One paragraph that says what the notes cover, chapter by chapter, in plain sentences.</p>
+
+<nav class="toc" aria-label="Contents">
+<h2>Contents</h2>
+<ol>
+  <li><a href="#s1">First Chapter</a>
+    <ol><li><a href="#s1-1">First section</a></li></ol></li>
+  <li><a href="#sA">Appendix. Reference Tables</a></li>
+</ol>
+</nav>
+
+<h2 id="s1"><span class="num">1</span>First Chapter</h2>
+
+<p>Prose paragraph. Inline math is written \(x \le 2\) and an identifier is <code>module_name</code>.</p>
+
+<h3 id="s1-1"><span class="num">1.1</span>First section</h3>
+
+$$a \;=\; \left(t_{\text{served}} - t_{\text{stamp}}\right) + \tau_{\text{req}}.$$
+
+<figure>
+<svg viewBox="0 0 900 200" role="img" aria-labelledby="f1t">
+  <title id="f1t">Two boxes joined by an arrow</title>
+  <defs>
+    <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+  </defs>
+  <g font-size="14" text-anchor="middle">
+    <rect class="box-r" x="60" y="60" width="240" height="70" rx="8"/><text x="180" y="90">producer</text><text class="t-muted" x="180" y="112" font-size="12">robot</text>
+    <rect class="box-b" x="600" y="60" width="240" height="70" rx="8"/><text x="720" y="90">consumer</text><text class="t-muted" x="720" y="112" font-size="12">brain</text>
+  </g>
+  <text x="450" y="86" text-anchor="middle" font-size="12">message</text>
+  <line class="arrow" x1="300" y1="95" x2="598" y2="95" marker-end="url(#ah1)"/>
+</svg>
+<figcaption>Figure 1. One sentence that says what the figure shows.</figcaption>
+</figure>
+
+<!-- Appendix. An h2 whose text starts with "Appendix. " becomes \appendix in LaTeX. -->
+<h2 id="sA"><span class="num">A</span>Appendix. Reference Tables</h2>
+
+<div class="table-wrap">
+<table>
+<thead><tr><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><code>port</code></td><td>8080</td></tr>
+</tbody>
+<caption>Table 1. One sentence that says what the table lists.</caption>
+</table>
+</div>
+
+</main>
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themeToggle');
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  try { var saved = localStorage.getItem('book-doc-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  btn.textContent = current() === 'dark' ? 'light mode' : 'dark mode';
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    btn.textContent = next === 'dark' ? 'light mode' : 'dark mode';
+    try { localStorage.setItem('book-doc-theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

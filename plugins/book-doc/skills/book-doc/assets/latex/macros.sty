@@ -1,0 +1,71 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macros}[2026/11/05 Scribe notes header, after the TML Scribe template]
+
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta}
+\RequirePackage{booktabs,longtable,tabularx,array}
+\RequirePackage{enumitem}
+\RequirePackage{float}
+\RequirePackage[hyphens]{url}
+\RequirePackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+
+% Identifiers and paths, breakable after / _ . -
+\DeclareUrlCommand\code{\urlstyle{tt}}
+\def\UrlBreaks{\do\/\do\_\do\.\do\-\do\:}
+
+% Header fields, as the template's \scribedby, \assignment and \lecturedate
+\newcommand{\@institution}{}\newcommand{\institution}[1]{\renewcommand{\@institution}{#1}}
+\newcommand{\@course}{}\newcommand{\course}[1]{\renewcommand{\@course}{#1}}
+\newcommand{\@release}{}\newcommand{\release}[1]{\renewcommand{\@release}{#1}}
+\newcommand{\@scribedby}{}\newcommand{\scribedby}[1]{\renewcommand{\@scribedby}{#1}}
+\newcommand{\@assignment}{}\newcommand{\assignment}[1]{\renewcommand{\@assignment}{#1}}
+\newcommand{\@lecturedate}{}\newcommand{\lecturedate}[1]{\renewcommand{\@lecturedate}{#1}}
+\newcommand{\@doctitle}{}\newcommand{\doctitle}[1]{\renewcommand{\@doctitle}{#1}}
+
+\renewcommand{\maketitle}{%
+  \noindent{\bfseries
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \@institution & \@scribedby \\
+    \@course & \@assignment \\
+    \@release & \@lecturedate \\
+  \end{tabular*}}\par
+  \vspace{4pt}\noindent\rule{\textwidth}{0.6pt}\par
+  \vspace{14pt}{\noindent\Large\bfseries \@doctitle\par}\vspace{12pt}}
+
+\newcommand{\outline}[1]{\noindent\textbf{Outline}\quad\textit{#1}}
+
+\newenvironment{callout}
+  {\par\medskip\noindent\begin{tabular}{@{}|p{0.95\textwidth}@{}}\hspace{0.6em}\begin{minipage}{0.92\textwidth}\vspace{4pt}}
+  {\vspace{4pt}\end{minipage}\end{tabular}\par\medskip}
+
+% Figure colours, the HTML page's light theme
+\definecolor{robotfill}{HTML}{E7F0FB}\definecolor{robotline}{HTML}{2F6DB3}
+\definecolor{brainfill}{HTML}{F8EBE3}\definecolor{brainline}{HTML}{B0532A}
+\definecolor{wirefill}{HTML}{EEF3E4}\definecolor{wireline}{HTML}{5B7D2A}
+\definecolor{lanfill}{HTML}{F3EEFA}\definecolor{lanline}{HTML}{6A4AA8}
+\definecolor{figline}{HTML}{3B3B40}\definecolor{figmuted}{HTML}{5B5B63}
+\tikzset{
+  host-robot/.style={fill=robotfill,draw=robotline,line width=0.8pt},
+  host-brain/.style={fill=brainfill,draw=brainline,line width=0.8pt},
+  wire/.style={fill=wirefill,draw=wireline,line width=0.6pt},
+  lan/.style={fill=lanfill,draw=lanline,line width=0.6pt},
+  box/.style={fill=white,draw=figline,line width=0.5pt},
+  box-r/.style={fill=white,draw=robotline,line width=0.55pt},
+  box-b/.style={fill=white,draw=brainline,line width=0.55pt},
+  bar-a/.style={fill=robotfill,draw=robotline,line width=0.55pt},
+  bar-b/.style={fill=brainfill,draw=brainline,line width=0.55pt},
+  dashed-box/.style={draw=figline,line width=0.5pt,dash pattern=on 2.5pt off 2pt},
+  life/.style={draw=figmuted,line width=0.4pt,dash pattern=on 1.6pt off 2pt},
+  arrow/.style={draw=figline,line width=0.65pt},
+  arrow-ret/.style={draw=figline,line width=0.6pt,dash pattern=on 2.5pt off 1.6pt},
+  >={Latex[length=4pt,width=3.4pt]},
+}
+
+\setlength{\parskip}{6pt}
+\endinput
